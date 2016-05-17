@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     IEnumerator Start()
     {
         spaceship = GetComponent<Spaceship>();
-        spaceship.Move(transform.up * -1);
+        Move(transform.up * -1);
 
         if (spaceship.canShot == false)
         {
@@ -24,6 +24,11 @@ public class Enemy : MonoBehaviour
             }
             yield return new WaitForSeconds(spaceship.shotDelay);
         }
+    }
+
+    public void Move(Vector2 direction)
+    {
+        GetComponent<Rigidbody2D>().velocity = direction * spaceship.speed;
     }
 
     void OnTriggerEnter2D(Collider2D c)
