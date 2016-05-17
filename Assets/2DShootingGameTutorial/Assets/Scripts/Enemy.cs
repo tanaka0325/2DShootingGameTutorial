@@ -50,6 +50,10 @@ public class Enemy : MonoBehaviour
             spaceship.Explosion();
             Destroy(gameObject);
         }
+        else
+        {
+            spaceship.GetAnimator().SetTrigger("Damage");
+        }
     }
 }
 
