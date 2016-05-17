@@ -23,7 +23,6 @@ public class Player : MonoBehaviour
         float y = Input.GetAxisRaw("Vertical");
 
         Vector2 direction = new Vector2(x, y).normalized;
-        // spaceship.Move(direction);
         Move(direction);
     }
 
@@ -53,6 +52,8 @@ public class Player : MonoBehaviour
 
         if (layerName == "Bullet (Enemy)" || layerName == "Enemy")
         {
+            FindObjectOfType<Manager>().GameOver();
+
             spaceship.Explosion();
             Destroy(gameObject);
         }
