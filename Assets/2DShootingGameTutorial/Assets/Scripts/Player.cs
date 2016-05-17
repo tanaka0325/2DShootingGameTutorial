@@ -3,15 +3,15 @@ using System.Collections;
 
 public class Player : MonoBehaviour
 {
-    Spaceship spaceshp;
+    Spaceship spaceship;
 
     IEnumerator Start()
     {
         while (true)
         {
-            spaceshp = GetComponent<Spaceship>();
-            spaceshp.Shot(transform);
-            yield return new WaitForSeconds(spaceshp.shotDelay);
+            spaceship = GetComponent<Spaceship>();
+            spaceship.Shot(transform);
+            yield return new WaitForSeconds(spaceship.shotDelay);
         }
     }
 
@@ -21,6 +21,13 @@ public class Player : MonoBehaviour
         float y = Input.GetAxisRaw("Vertical");
 
         Vector2 direction = new Vector2(x, y).normalized;
-        spaceshp.Move(direction);
+        spaceship.Move(direction);
+    }
+
+    void OnTriggerEnter2D(Collider2D c)
+    {
+        Destroy(c.gameObject);
+        spaceship.Explosion();
+        Destroy(gameObject);
     }
 }

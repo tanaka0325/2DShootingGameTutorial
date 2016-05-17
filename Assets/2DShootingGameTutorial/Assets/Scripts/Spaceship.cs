@@ -6,8 +6,14 @@ public class Spaceship : MonoBehaviour
 {
     public float speed;
     public float shotDelay;
+    public bool canShot;
     public GameObject bullet;
-	public bool canShot;
+    public GameObject explosion;
+
+    public void Explosion()
+    {
+        Instantiate(explosion, transform.position, transform.rotation);
+    }
 
     public void Shot(Transform origin)
     {
