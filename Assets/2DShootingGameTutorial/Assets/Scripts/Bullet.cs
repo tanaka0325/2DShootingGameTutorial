@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour
 {
+    public int power = 1;
     public int speed = 10;
     public float lifeTime = 5;
 
