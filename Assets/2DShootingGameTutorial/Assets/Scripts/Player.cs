@@ -5,6 +5,17 @@ public class Player : MonoBehaviour
 {
     public float speed = 5;
 
+    public GameObject bullet;
+
+    IEnumerator Start()
+    {
+        while (true)
+        {
+            Instantiate(bullet, transform.position, transform.rotation);
+            yield return new WaitForSeconds(0.05f);
+        }
+    }
+
     void Update()
     {
         float x = Input.GetAxisRaw("Horizontal");
