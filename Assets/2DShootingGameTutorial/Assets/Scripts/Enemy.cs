@@ -4,6 +4,7 @@ using System.Collections;
 public class Enemy : MonoBehaviour
 {
     public int hp = 1;
+    public int point = 100;
 
     Spaceship spaceship;
 
@@ -47,6 +48,8 @@ public class Enemy : MonoBehaviour
 
         if (hp <= 0)
         {
+            FindObjectOfType<Score>().AddPoint(point);
+
             spaceship.Explosion();
             Destroy(gameObject);
         }

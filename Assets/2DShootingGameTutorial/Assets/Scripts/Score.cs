@@ -31,6 +31,11 @@ public class Score : MonoBehaviour
         highScore = PlayerPrefs.GetInt(highScoreKey, 0);
     }
 
+    public void AddPoint(int point)
+    {
+        score = score + point;
+    }
+
     public void Save()
     {
         PlayerPrefs.SetInt(highScoreKey, highScore);
